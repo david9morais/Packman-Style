@@ -1,0 +1,302 @@
+/*
+  Aplicações Multimédia
+  Cláudio Barradas, 2019
+*/
+
+body {
+    background-color: black;
+
+}
+
+
+.cell {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url(images/tileset.png);
+}
+
+.empty {
+    background-image: none !important;
+}
+
+.floor {
+    background-position: 0px 0px;
+}
+
+.wall {
+    background-position: -32px 0px;
+}
+
+.stairsS {
+    background-position: -64px 0px;
+}
+
+.stairsE {
+    background-position: -96px 0px;
+}
+
+.backSecretStairs {
+    background-position: -96px 0px;
+}
+
+.goSecretStairs {
+    background-position: -96px 0px;
+}
+
+.key {
+    background-position: -128px 0px;
+}
+
+.stoneLock {
+    background-position: -160px 0px;
+}
+
+.iceStone {
+    background-position: -192px 0px;
+}
+
+.question {
+    background-position: -224px 0px;
+}
+
+.bones {
+    background-position: -128px -32px;
+}
+
+.doorLock {
+    background-position: -160px -32px;
+}
+
+
+/*-------------------------------------------------------*/
+
+.actor {
+    background-image: url(images/hero_a.png) !important;
+}
+
+.princess {
+    background-image: url(images/enemy_a.png) !important;
+    filter: hue-rotate(200deg);
+}
+.enemyGreen {
+    background-image: url(images/enemy_a.png) !important;
+}
+
+.enemyRed {
+    background-image: url(images/enemy_a.png) !important;
+    filter: hue-rotate(225deg);
+}
+
+.enemyBlue {
+    background-image: url(images/enemy_a.png) !important;
+    filter: hue-rotate(90deg);
+}
+
+.enemyYellow {
+    background-image: url(images/enemy_a.png) !important;
+    filter: hue-rotate(300deg);
+}
+
+.actor.down {
+    transform: rotate(180deg);
+}
+
+.actor.right {
+    transform: rotate(90deg);
+}
+
+.actor.left {
+    transform: rotate(-90deg);
+}
+
+.enemyGreen.down {
+    transform: rotate(180deg);
+}
+
+.enemyGreen.right {
+    transform: rotate(90deg);
+}
+
+.enemyGreen.left {
+    transform: rotate(-90deg);
+}
+
+.enemyBlue.down {
+    transform: rotate(180deg);
+}
+
+.enemyBlue.right {
+    transform: rotate(90deg);
+}
+
+.enemyBlue.left {
+    transform: rotate(-90deg);
+}
+
+.enemyRed.down {
+    transform: rotate(180deg);
+}
+
+.enemyRed.right {
+    transform: rotate(90deg);
+}
+
+.enemyRed.left {
+    transform: rotate(-90deg);
+}
+
+.enemyYellow.down {
+    transform: rotate(180deg);
+}
+
+.enemyYellow.right {
+    transform: rotate(90deg);
+}
+
+.enemyYellow.left {
+    transform: rotate(-90deg);
+}
+
+.princess.down {
+    transform: rotate(180deg);
+}
+
+
+
+/*
+---- Animação -----------------------------------------
+ exemplo de uso: por um objecto a piscar devagar: class="animated blink slow"
+*/
+
+.animated.walk {
+    animation: walking 1s steps(8) infinite;
+}
+
+.animated.blink {
+    animation: fadeinout alternate 1s infinite;
+}
+
+.fast {
+    animation-duration: 0.1s !important;
+}
+
+.slow {
+    animation-duration: 1.5s !important;
+}
+
+.animated.fadeout {
+    animation: fade 1s reverse forwards;
+}
+
+.animated.fadein {
+    animation: fade 1s forwards;
+}
+
+@keyframes fadeinout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes walking {
+    0% {
+        background-position: 0px 0px;
+    }
+
+    100% {
+        background-position: -256px 0px;
+    }
+}
+
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+Filtros: 
+exemplo: para desfocar qualquer elemento basta addicionar a class blurred; os colorize mudam a cor de um elemento  
+
+
+*/
+
+.blurred {
+    filter: blur(1px)
+}
+
+.colorize240 {
+    filter: hue-rotate(240deg);
+}
+
+.colorize120 {
+    filter: hue-rotate(120deg);
+}
+
+.colorize60 {
+    filter: hue-rotate(60deg);
+}
+
+#stage {
+    position: relative;
+    width: 608px;
+    height: 640px;
+    display: block;
+    margin: auto;
+    -webkit-box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    background-color: #555;
+}
+
+#infoPanel {
+    position: relative;
+    width: 598px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: darkgrey;
+    -webkit-box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 9px 1px rgba(0, 0, 0, 0.75);
+    border: 5px gold solid;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 15px 5px;
+    font-size: 24px;
+    width: 605px;
+    height: 30px;
+    display: block;
+    margin:auto;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: darkgrey;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px gold;
+    position: relative;
+}
+  
+ .button:active {
+    background-color: gold;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+ }
